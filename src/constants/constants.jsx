@@ -7,7 +7,7 @@ export const METADATA = {
   title: "Rohtash Poonia | Full Stack Developer",
   description:
     "Full Stack Developer building responsive interfaces, backend services, REST APIs, and database-driven applications.",
-  siteUrl: "https://portfolio-omega-seven-l7y6bvxpew.vercel.app/",
+  siteUrl: "https://fullstack-portfolio-beryl-gamma.vercel.app/",
   twitterHandle: "",
   keywords: [
     "Rohtash Poonia",

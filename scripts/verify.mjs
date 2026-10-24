@@ -153,7 +153,7 @@ try {
   await check('three projects preserve fades, immediate reversal, dots and boundaries', async () => {
     await go(page, 3);
     assert.equal(await page.locator('#projects h3').innerText(), 'IcyTales');
-    assert.equal(await page.getByRole('link', { name: 'Live Demo', exact: true }).getAttribute('href'), 'https://icylates.vercel.app/');
+    assert.equal(await page.getByRole('link', { name: 'Live Demo', exact: true }).getAttribute('href'), 'https://personal-icytales.vercel.app/');
     await wheel(page, 100);
     await page.waitForTimeout(80);
     await wheel(page, -100);

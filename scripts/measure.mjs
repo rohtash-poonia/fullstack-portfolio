@@ -33,7 +33,7 @@ try {
  }
  const links = [];
  const request = await browser.newContext();
- for(const target of ['https://github.com/rohtash-poonia/My_Portfolio','https://github.com/rohtash-poonia/Task-Master','https://task-master-one-delta.vercel.app/','https://portfolio-omega-seven-l7y6bvxpew.vercel.app/']){
+ for(const target of ['https://github.com/rohtash-poonia/fullstack-portfolio.git','https://github.com/rohtash-poonia/Task-Master','https://task-master-one-delta.vercel.app/','https://fullstack-portfolio-beryl-gamma.vercel.app/']){
   try{const response=await request.request.get(target,{timeout:12000});links.push({url:target,status:response.status()})}catch(error){links.push({url:target,error:error.message.split('\n')[0]})}
  }
  const html = await readFile('dist/index.html', 'utf8');

@@ -49,6 +49,6 @@ The original intro, typewriter, Spline robot, star canvas, GSAP cursor, and full
 
 Original artwork is retained in the restored components. Additional optimized WebP variants are available under `src/assets/images/optimized`; originals remain intact. To regenerate them, install Sharp separately and run `node scripts/optimize-images.mjs`. Sharp is not a runtime dependency.
 
-Project links and descriptions come from this repository. The three original projects are available again; IcyTales links to https://icylates.vercel.app/. The genuine historical Frontend Developer job title and education entries are preserved.
+Project links and descriptions come from this repository. The three original projects are available again; IcyTales links to https://personal-icytales.vercel.app/. The genuine historical Frontend Developer job title and education entries are preserved.
 
 See [the latest targeted-update report](docs/portfolio-oct23.md) for verification results and limitations. The earlier restoration report remains in docs/portfolio-upgrade.md.

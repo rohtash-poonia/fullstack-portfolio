@@ -14,8 +14,8 @@ export async function verifyRestoration({page,url,check}) {
  await check('original Education proportions on desktop',async()=>{
   await go(4);assert.ok((await size('.education-timeline')).width>=1000);assert.ok((await size('.education-card h3')).font>=20);assert.ok((await size('.education-card')).padding>=24);assert.ok((await size('.education-heading')).font>=36);
  });
- await check('original testimonial proportions on desktop',async()=>{
-  await go(5);assert.equal(Math.round((await size('[data-active="true"]')).width),450);assert.equal((await size('.testimonial-quote')).font,20);assert.equal(Math.round((await size('[data-active="true"] img')).width),96);
+ await check('compact testimonials retain readable desktop proportions',async()=>{
+  await go(5);assert.equal(Math.round((await size('[data-active="true"]')).width),450);assert.ok((await size('.testimonial-quote')).font>=16);assert.ok(Math.round((await size('[data-active="true"] img')).width)>=64);
  });
  await check('readable original-like proportions on tall phones',async()=>{
   await go(1,390,844);assert.ok((await size('.about-portrait')).width>=138);assert.ok((await size('#about h2')).font>=36);assert.ok((await size('.about-stats > div > div:last-child')).font>=14);
@@ -23,7 +23,7 @@ export async function verifyRestoration({page,url,check}) {
   await go(5,390,844);assert.ok((await size('.testimonial-quote')).font>=16);assert.ok((await size('[data-active="true"] img')).width>=72);
  });
  await check('one wheel or key gesture leaves each viewport section without internal scrolling',async()=>{
-  for(const [width,height] of [[1440,900],[390,600]])for(const index of (width>=768?[1,4]:[4]))for(const dir of [-1,1])for(const input of ['wheel','key']){
+  for(const [width,height] of [[1440,900],[390,600]])for(const index of (width>=768?[1,4,5]:[4,5]))for(const dir of [-1,1])for(const input of ['wheel','key']){
    await go(index,width,height);
    const panel=page.locator('[data-section-index="'+index+'"]');assert.equal(await panel.evaluate(el=>getComputedStyle(el).overflowY),index===1?'auto':'hidden');assert.equal(await panel.evaluate(el=>el.scrollTop),0);
    if(input==='wheel'){await page.mouse.move(width/2,height/2);await page.mouse.wheel(0,dir*100);}else await page.keyboard.press(dir>0?'PageDown':'PageUp');
@@ -33,7 +33,7 @@ export async function verifyRestoration({page,url,check}) {
  await check('one vertical touch swipe leaves each viewport section in both directions',async()=>{
   const context=await page.context().browser().newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
   const phone=await context.newPage();const cdp=await context.newCDPSession(phone);
-  try{await phone.goto(url+'/about');await phone.locator('#about').waitFor({timeout:30000});for(const index of [4])for(const dir of [-1,1]){
+  try{await phone.goto(url+'/about');await phone.locator('#about').waitFor({timeout:30000});for(const index of [4,5])for(const dir of [-1,1]){
    await phone.evaluate(i=>window.__fullPageGoTo(i),index);await phone.waitForURL(url+paths[index]);await phone.waitForTimeout(800);
    const from=dir>0?650:250,to=dir>0?250:650;
    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:30,y:from}]});

@@ -14,8 +14,8 @@ const projectsData = [
     description: "A modern ice cream eCommerce website to explore flavors, browse products, and enjoy a smooth, visually engaging shopping experience.",
     image: icyImage,
     tags: ["React", "Next.js", "Tailwind CSS", "JavaScript", "UI/UX", "Responsive Design"],
-    liveLink: "https://icylates.vercel.app/",
-    githubLink: "https://github.com/rohtash-poonia/Icytales",
+    liveLink: "https://personal-icytales.vercel.app/",
+    githubLink: "https://github.com/rohtash-poonia/personal-Icytales.git",
     accentColor: "236, 72, 153",
   },
   {
@@ -34,8 +34,8 @@ const projectsData = [
     id: 3,
     image: img1,
     tags: ["React", "JavaScript", "Vite", "Tailwind CSS", "EmailJS", "Spline"],
-    liveLink: "https://portfolio-omega-seven-l7y6bvxpew.vercel.app/",
-    githubLink: "https://github.com/rohtash-poonia/My_Portfolio",
+    liveLink: "https://fullstack-portfolio-beryl-gamma.vercel.app/",
+    githubLink: "https://github.com/rohtash-poonia/fullstack-portfolio.git",
     accentColor: "255, 62, 150",
   },
 ];

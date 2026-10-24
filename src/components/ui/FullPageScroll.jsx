@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const paths = ['/', '/about', '/skills', '/projects', '/experience', '/testimonials', '/contact'];
-const fittedSections = new Set([4]);
+const fittedSections = new Set([4, 5]);
 const isFittedPanel = element => fittedSections.has(Number(element?.dataset.sectionIndex));
 const sectionVariants = {
   enter: direction => ({ y: direction > 0 ? '100%' : '-100%', opacity: 0 }),
