@@ -2,45 +2,47 @@
 
 /* ---------------- Fonts ---------------- */
 body {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-h1, h2 {
-    font-family: "Roboto", sans-serif;
+h1,
+h2 {
+  font-family: "Roboto", sans-serif;
 }
 
 /* ---------------- Gradient Background Utility ---------------- */
 @layer utilities {
-    .gradient {
-        background: linear-gradient(135deg, #112573 10%, #822727 100%);
-    }
+  .gradient {
+    background: linear-gradient(135deg, #112573 10%, #822727 100%);
+  }
 
-    .animate-gradientMove {
-        animation: gradientMove 8s ease infinite; /* smooth easing */
-        background-size: 200% 200%;
-    }
+  .animate-gradientMove {
+    animation: gradientMove 8s ease infinite; /* smooth easing */
+    background-size: 200% 200%;
+  }
 }
 
 /* ---------------- Gradient Text ---------------- */
 .animated-gradient-text {
-    background: linear-gradient(
-        90deg,
-        #ec4899,
-        #d946ef,
-        #8b5cf6,
-        #ec4899
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 6s ease infinite; /* slower & smooth */
+  background: linear-gradient(90deg, #ec4899, #d946ef, #8b5cf6, #ec4899);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease infinite; /* slower & smooth */
 }
 
 /* ---------------- Keyframes ---------------- */
 @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 /* GPU acceleration for animations */
 /* Improve animation smoothness */
@@ -60,132 +62,407 @@ body {
   transform: translateZ(0);
 }
 /* Full-page panels retain the original composition and scroll only when content needs it. */
-.section-viewport { scrollbar-width: thin; }
+.section-viewport {
+  scrollbar-width: thin;
+}
 
-:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 4px;
+}
 @media (max-width: 767px), (max-height: 720px) {
-  .contact-wrapper .main-content { padding-top: 80px; }
+  .contact-wrapper .main-content {
+    padding-top: 80px;
+  }
 }
 @media (max-width: 480px) {
-  .contact-wrapper .main-content { padding-left: 20px; padding-right: 20px; }
+  .contact-wrapper .main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* The longer hero title remains on a single desktop line. */
 @media (min-width: 1024px) {
-  .hero-copy { container-type: inline-size; }
-  .hero-role-combined { white-space: nowrap; font-size: min(2.25rem, 4.8cqi); line-height: 1.2; }
+  .hero-copy {
+    container-type: inline-size;
+  }
+  .hero-role-combined {
+    white-space: nowrap;
+    font-size: min(2.25rem, 4.8cqi);
+    line-height: 1.2;
+  }
 }
 
 /* Restore the saved Astra layout; use fit adjustments only on limited screens. */
-#experience { height: 100vh; min-height: 0; box-sizing: border-box; }
- { padding: 0; }
- { padding-top: 48px; padding-bottom: 0; }
- { padding-top: 0; gap: 40px; }
- { flex-shrink: 0; }
- { margin: 24px 0 32px; gap: 16px; }
- { margin-top: 32px; gap: 16px; }
- { margin-top: 48px; }
+#experience {
+  height: 100vh;
+  min-height: 0;
+  box-sizing: border-box;
+}
 
-#experience { padding: 80px 24px 32px; justify-content: center; }
-#experience .education-heading { font-size: 36px; line-height: 40px; margin: 0 0 24px; flex-shrink: 0; }
-#experience .education-timeline { max-width: 1024px; max-height: 640px; min-height: 0; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-#experience .education-item { margin-bottom: 0; flex-shrink: 0; }
-#experience .education-card { padding: 32px 28px; border-radius: 16px; }
-#experience .education-card h3 { font-size: 22px; line-height: 30px; }
-#experience .education-card p { font-size: 17px; line-height: 26px; }
-#experience .education-card p:last-child { font-size: 15px; line-height: 22px; }
-#experience .education-dot { width: 16px; height: 16px; top: 32px; }
+#experience {
+  padding: 80px 24px 32px;
+  justify-content: center;
+}
+#experience .education-heading {
+  font-size: 50px;
+  line-height: 58px;
+  margin: 0 0 24px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, #38bdf8 0%, #f8fafc 50%, #7dd3fc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+#experience .education-timeline {
+  max-width: 1024px;
+  max-height: 620px;
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(32px, 3.5vh, 42px);
+}
+#experience .education-item {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+#experience .education-card {
+  padding: 40px 32px;
+  border-radius: 16px;
+}
+#experience .education-card h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+#experience .education-card p {
+  font-size: 18px;
+  line-height: 28px;
+}
+#experience .education-card p:last-child {
+  font-size: 16px;
+  line-height: 24px;
+}
+#experience .education-dot {
+  width: 16px;
+  height: 16px;
+  top: 32px;
+}
 
 /* Keep larger cards within the same viewport on shorter desktop screens. */
 @media (min-width: 768px) and (max-height: 680px) {
-  #experience .education-card { padding: 24px; }
-  #experience .education-card h3 { font-size: 20px; line-height: 28px; }
-  #experience .education-card p { font-size: 16px; line-height: 24px; }
-  #experience .education-card p:last-child { font-size: 14px; line-height: 20px; }
-  #experience .education-dot { top: 24px; }
+  #experience .education-card {
+    padding: 28px 24px;
+  }
+  #experience .education-card h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  #experience .education-card p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  #experience .education-card p:last-child {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  #experience .education-dot {
+    top: 24px;
+  }
 }
 
 /* Keep the original card widths and use the available viewport height. */
-#testimonials { padding: 64px 24px 16px; }
-#testimonials .testimonial-heading { font-size: 40px; line-height: 46px; margin: 0 0 16px; flex-shrink: 0; }
-#testimonials .testimonial-controls { margin-top: 16px; gap: 24px; flex-shrink: 0; }
-#testimonials .testimonial-controls button { width: 48px; height: 48px; }
-#testimonials .testimonial-card { max-width: calc(100vw - 48px); min-height: min(620px, calc(100vh - 206px)); padding: 28px 24px; justify-content: space-evenly; cursor: grab; }
-#testimonials .testimonial-portrait { margin-bottom: 20px; }
-#testimonials .testimonial-portrait img { width: 96px; height: 96px; }
-#testimonials .testimonial-quote { font-size: 18px; line-height: 28px; margin-bottom: 20px; }
-#testimonials .testimonial-card h3 { font-size: 22px; line-height: 28px; }
-#testimonials .testimonial-card h3 + p { font-size: 12px; line-height: 18px; margin-top: 4px; }
-#testimonials .testimonial-card:active { cursor: grabbing; }
-#testimonials .testimonial-card p, #testimonials .testimonial-card h3 { cursor: text; }
+#testimonials {
+  padding: 64px 24px 16px;
+}
+#testimonials .testimonial-heading {
+  font-size: 40px;
+  line-height: 46px;
+  margin: 0 0 16px;
+  flex-shrink: 0;
+}
+#testimonials .testimonial-controls {
+  margin-top: 16px;
+  gap: 24px;
+  flex-shrink: 0;
+}
+#testimonials .testimonial-controls button {
+  width: 48px;
+  height: 48px;
+}
+#testimonials .testimonial-card {
+  max-width: calc(100vw - 48px);
+  min-height: min(620px, calc(100vh - 206px));
+  padding: 28px 24px;
+  justify-content: space-evenly;
+  cursor: grab;
+}
+#testimonials .testimonial-portrait {
+  margin-bottom: 20px;
+}
+#testimonials .testimonial-portrait img {
+  width: 96px;
+  height: 96px;
+}
+#testimonials .testimonial-quote {
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+#testimonials .testimonial-card h3 {
+  font-size: 22px;
+  line-height: 28px;
+}
+#testimonials .testimonial-card h3 + p {
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 4px;
+}
+#testimonials .testimonial-card:active {
+  cursor: grabbing;
+}
+#testimonials .testimonial-card p,
+#testimonials .testimonial-card h3 {
+  cursor: text;
+}
 
 @media (min-width: 768px) and (max-height: 739px) {
-  #testimonials { padding-bottom: 12px; }
-  #testimonials .testimonial-heading { font-size: 34px; line-height: 40px; margin-bottom: 12px; }
-  #testimonials .testimonial-card { min-height: min(620px, calc(100vh - 172px)); padding: 24px; }
-  #testimonials .testimonial-portrait { margin-bottom: 16px; }
-  #testimonials .testimonial-portrait img { width: 80px; height: 80px; }
-  #testimonials .testimonial-quote { font-size: 16px; line-height: 24px; margin-bottom: 16px; }
-  #testimonials .testimonial-card h3 { font-size: 20px; line-height: 26px; }
-  #testimonials .testimonial-controls { margin-top: 12px; }
-  #testimonials .testimonial-controls button { width: 44px; height: 44px; }
+  #testimonials {
+    padding-bottom: 12px;
+  }
+  #testimonials .testimonial-heading {
+    font-size: 34px;
+    line-height: 40px;
+    margin-bottom: 12px;
+  }
+  #testimonials .testimonial-card {
+    min-height: min(620px, calc(100vh - 172px));
+    padding: 24px;
+  }
+  #testimonials .testimonial-portrait {
+    margin-bottom: 16px;
+  }
+  #testimonials .testimonial-portrait img {
+    width: 80px;
+    height: 80px;
+  }
+  #testimonials .testimonial-quote {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+  #testimonials .testimonial-card h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  #testimonials .testimonial-controls {
+    margin-top: 12px;
+  }
+  #testimonials .testimonial-controls button {
+    width: 44px;
+    height: 44px;
+  }
 }
 @media (max-width: 767px) {
-  #testimonials .testimonial-heading { font-size: 32px; line-height: 38px; margin-bottom: 12px; }
-  #testimonials .testimonial-card { min-height: min(580px, calc(100vh - 186px)); padding: 24px 20px; }
-  #testimonials .testimonial-portrait { margin-bottom: 16px; }
-  #testimonials .testimonial-portrait img { width: 80px; height: 80px; }
-  #testimonials .testimonial-quote { font-size: 16px; line-height: 24px; margin-bottom: 16px; }
-  #testimonials .testimonial-card h3 { font-size: 20px; line-height: 26px; }
-  #testimonials .testimonial-controls { margin-top: 12px; }
-  #testimonials .testimonial-controls button { width: 44px; height: 44px; }
+  #testimonials .testimonial-heading {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 12px;
+  }
+  #testimonials .testimonial-card {
+    min-height: min(580px, calc(100vh - 186px));
+    padding: 24px 20px;
+  }
+  #testimonials .testimonial-portrait {
+    margin-bottom: 16px;
+  }
+  #testimonials .testimonial-portrait img {
+    width: 80px;
+    height: 80px;
+  }
+  #testimonials .testimonial-quote {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+  #testimonials .testimonial-card h3 {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  #testimonials .testimonial-controls {
+    margin-top: 12px;
+  }
+  #testimonials .testimonial-controls button {
+    width: 44px;
+    height: 44px;
+  }
 }
 @media (max-width: 767px) and (max-height: 739px) {
-  #testimonials { padding-bottom: 12px; }
-  #testimonials .testimonial-heading { font-size: 28px; line-height: 34px; margin-bottom: 10px; }
-  #testimonials .testimonial-card { min-height: min(560px, calc(100vh - 170px)); padding: 20px 16px; }
-  #testimonials .testimonial-portrait { margin-bottom: 12px; }
-  #testimonials .testimonial-portrait img { width: 64px; height: 64px; }
-  #testimonials .testimonial-quote { font-size: 14px; line-height: 21px; margin-bottom: 12px; }
-  #testimonials .testimonial-card h3 { font-size: 18px; line-height: 24px; }
-  #testimonials .testimonial-card h3 + p { font-size: 11px; line-height: 16px; margin-top: 2px; }
-  #testimonials .testimonial-controls { margin-top: 10px; gap: 20px; }
-  #testimonials .testimonial-controls button { width: 40px; height: 40px; }
+  #testimonials {
+    padding-bottom: 12px;
+  }
+  #testimonials .testimonial-heading {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 10px;
+  }
+  #testimonials .testimonial-card {
+    min-height: min(560px, calc(100vh - 170px));
+    padding: 20px 16px;
+  }
+  #testimonials .testimonial-portrait {
+    margin-bottom: 12px;
+  }
+  #testimonials .testimonial-portrait img {
+    width: 64px;
+    height: 64px;
+  }
+  #testimonials .testimonial-quote {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 12px;
+  }
+  #testimonials .testimonial-card h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  #testimonials .testimonial-card h3 + p {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 2px;
+  }
+  #testimonials .testimonial-controls {
+    margin-top: 10px;
+    gap: 20px;
+  }
+  #testimonials .testimonial-controls button {
+    width: 40px;
+    height: 40px;
+  }
 }
 @media (max-width: 567px) and (max-height: 559px) {
-  #testimonials { padding-bottom: 8px; }
-  #testimonials .testimonial-heading { font-size: 26px; line-height: 30px; margin-bottom: 8px; }
-  #testimonials .testimonial-card { min-height: calc(100vh - 154px); padding: 12px; }
-  #testimonials .testimonial-portrait { margin-bottom: 8px; }
-  #testimonials .testimonial-portrait img { width: 40px; height: 40px; }
-  #testimonials .testimonial-quote { font-size: 13px; line-height: 18px; margin-bottom: 8px; }
-  #testimonials .testimonial-card h3 { font-size: 16px; line-height: 22px; }
-  #testimonials .testimonial-card h3 + p { font-size: 10px; line-height: 14px; }
-  #testimonials .testimonial-controls { margin-top: 8px; }
-  #testimonials .testimonial-controls button { width: 36px; height: 36px; }
+  #testimonials {
+    padding-bottom: 8px;
+  }
+  #testimonials .testimonial-heading {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+  #testimonials .testimonial-card {
+    min-height: calc(100vh - 154px);
+    padding: 12px;
+  }
+  #testimonials .testimonial-portrait {
+    margin-bottom: 8px;
+  }
+  #testimonials .testimonial-portrait img {
+    width: 40px;
+    height: 40px;
+  }
+  #testimonials .testimonial-quote {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 8px;
+  }
+  #testimonials .testimonial-card h3 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  #testimonials .testimonial-card h3 + p {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  #testimonials .testimonial-controls {
+    margin-top: 8px;
+  }
+  #testimonials .testimonial-controls button {
+    width: 36px;
+    height: 36px;
+  }
 }
 @media (min-width: 568px) and (max-height: 600px) {
-  #testimonials { padding-bottom: 8px; }
-  #testimonials .testimonial-heading { font-size: 26px; line-height: 30px; margin-bottom: 8px; }
-  #testimonials .testimonial-card { min-height: min(400px, calc(100vh - 154px)); padding: 10px 14px; }
-  #testimonials .testimonial-portrait { margin-bottom: 6px; }
-  #testimonials .testimonial-portrait img { width: 40px; height: 40px; }
-  #testimonials .testimonial-quote { font-size: 14px; line-height: 20px; margin-bottom: 6px; }
-  #testimonials .testimonial-card h3 { font-size: 18px; line-height: 22px; }
-  #testimonials .testimonial-card h3 + p { font-size: 11px; line-height: 14px; margin-top: 2px; }
-  #testimonials .testimonial-controls { margin-top: 8px; }
-  #testimonials .testimonial-controls button { width: 36px; height: 36px; }
+  #testimonials {
+    padding-bottom: 8px;
+  }
+  #testimonials .testimonial-heading {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+  #testimonials .testimonial-card {
+    min-height: min(400px, calc(100vh - 154px));
+    padding: 10px 14px;
+  }
+  #testimonials .testimonial-portrait {
+    margin-bottom: 6px;
+  }
+  #testimonials .testimonial-portrait img {
+    width: 40px;
+    height: 40px;
+  }
+  #testimonials .testimonial-quote {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 6px;
+  }
+  #testimonials .testimonial-card h3 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  #testimonials .testimonial-card h3 + p {
+    font-size: 11px;
+    line-height: 14px;
+    margin-top: 2px;
+  }
+  #testimonials .testimonial-controls {
+    margin-top: 8px;
+  }
+  #testimonials .testimonial-controls button {
+    width: 36px;
+    height: 36px;
+  }
 }
 @media (min-width: 568px) and (max-height: 359px) {
-  #testimonials .testimonial-heading { font-size: 22px; line-height: 26px; margin-bottom: 6px; }
-  #testimonials .testimonial-card { min-height: calc(100vh - 142px); padding: 6px 12px; }
-  #testimonials .testimonial-portrait { margin-bottom: 4px; }
-  #testimonials .testimonial-portrait img { width: 32px; height: 32px; }
-  #testimonials .testimonial-quote { font-size: 13px; line-height: 17px; margin-bottom: 4px; }
-  #testimonials .testimonial-card h3 { font-size: 16px; line-height: 20px; }
-  #testimonials .testimonial-card h3 + p { font-size: 10px; line-height: 12px; }
-  #testimonials .testimonial-controls { margin-top: 6px; }
-  #testimonials .testimonial-controls button { width: 32px; height: 32px; }
+  #testimonials .testimonial-heading {
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 6px;
+  }
+  #testimonials .testimonial-card {
+    min-height: calc(100vh - 142px);
+    padding: 6px 12px;
+  }
+  #testimonials .testimonial-portrait {
+    margin-bottom: 4px;
+  }
+  #testimonials .testimonial-portrait img {
+    width: 32px;
+    height: 32px;
+  }
+  #testimonials .testimonial-quote {
+    font-size: 13px;
+    line-height: 17px;
+    margin-bottom: 4px;
+  }
+  #testimonials .testimonial-card h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  #testimonials .testimonial-card h3 + p {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  #testimonials .testimonial-controls {
+    margin-top: 6px;
+  }
+  #testimonials .testimonial-controls button {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 #testimonials .testimonial-card {
@@ -194,127 +471,147 @@ body {
   gap: 8px;
   padding: 16px 20px;
 }
-#testimonials .testimonial-portrait { margin-bottom: 0; }
+#testimonials .testimonial-portrait {
+  margin-bottom: 0;
+}
 #testimonials .testimonial-portrait img {
   width: clamp(112px, 32vh, 192px);
   height: clamp(112px, 32vh, 192px);
 }
-#testimonials .testimonial-quote { margin: 0; }
-#testimonials { padding-top: clamp(32px, 8vh, 48px); }
+#testimonials .testimonial-quote {
+  margin: 0;
+}
+#testimonials {
+  padding-top: clamp(32px, 8vh, 48px);
+}
 #testimonials .testimonial-heading {
   font-size: clamp(28px, min(5.65vw, 7.7vh), 44px);
   line-height: 1.1;
   margin-bottom: clamp(20px, 4vh, 28px);
 }
-#testimonials .testimonial-card { padding: 12px 20px; }
-#testimonials .testimonial-portrait { margin-bottom: 4px; }
-
-@media (min-width: 768px) and (max-height: 720px) {
-   { padding: 72px 0; }
-   { padding-top: 0; }
-   { margin-top: 28px; }
-   { margin: 20px 0; }
-   { margin-top: 20px; }
+#testimonials .testimonial-card {
+  padding: 12px 20px;
 }
+#testimonials .testimonial-portrait {
+  margin-bottom: 4px;
+}
+
 @media (max-width: 767px) {
-   { padding: 72px 0 64px; }
-   { padding-top: 0; }
-   { gap: 24px; }
-   { width: 140px; height: 140px; }
-   { font-size: 36px; line-height: 40px; }
-   { font-size: 18px; line-height: 26px; }
-   { font-size: 14px; line-height: 21px; }
-   { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 20px 0 0; gap: 10px; }
-   { padding: 10px 8px; }
-   { font-size: 12px; line-height: 18px; }
-   { font-size: 14px; line-height: 20px; }
-   { flex-direction: row; margin-top: 20px; gap: 12px; }
-   { padding: 12px 16px; font-size: 14px; line-height: 20px; }
-   { margin-top: 28px; }
-   { font-size: 24px; line-height: 30px; margin-bottom: 12px; }
-   { font-size: 14px; line-height: 21px; }
-   { bottom: 14px; }
-   { height: 28px; }
-   { margin-top: 4px; font-size: 10px; }
-  #experience { padding: 72px 16px 24px; }
-  #experience .education-heading { font-size: 32px; line-height: 38px; margin-bottom: 20px; }
-  #experience .education-card { padding: 26px 22px; }
-  #experience .education-card h3 { font-size: 20px; line-height: 28px; }
-  #experience .education-card p { font-size: 15px; line-height: 22px; }
-  #experience .education-card p:last-child { font-size: 13px; line-height: 20px; }
-  #experience .education-dot { top: 26px; width: 12px; height: 12px; }
+  #experience {
+    padding: 72px 16px 24px;
+  }
+  #experience .education-heading {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 20px;
+  }
+  #experience .education-card {
+    padding: 28px 22px;
+  }
+  #experience .education-card h3 {
+    font-size: 21px;
+    line-height: 29px;
+  }
+  #experience .education-card p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  #experience .education-card p:last-child {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  #experience .education-dot {
+    top: 26px;
+    width: 12px;
+    height: 12px;
+  }
 }
 @media (max-width: 767px) and (max-height: 739px) {
-   { padding-top: 64px; }
-   { gap: 16px; }
-   { width: 104px; height: 104px; }
-   { font-size: 32px; line-height: 36px; }
-   { margin-top: 14px; gap: 8px; }
-   { margin-top: 14px; }
-   { margin-top: 20px; }
-   { font-size: 22px; line-height: 28px; margin-bottom: 8px; }
-   { font-size: 13px; line-height: 18px; }
-  #experience .education-heading { font-size: 28px; line-height: 34px; margin-bottom: 16px; }
-  #experience .education-card { padding: 16px; }
-  #experience .education-card h3 { font-size: 17px; line-height: 24px; }
-  #experience .education-card p { font-size: 14px; line-height: 20px; }
-  #experience .education-card p:last-child { font-size: 13px; line-height: 18px; }
-  #experience .education-dot { top: 16px; }
+  #experience .education-heading {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 16px;
+  }
+  #experience .education-card {
+    padding: 18px 16px;
+  }
+  #experience .education-card h3 {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  #experience .education-card p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  #experience .education-card p:last-child {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  #experience .education-dot {
+    top: 16px;
+  }
 }
 @media (max-width: 767px) and (max-height: 639px) {
-   { gap: 14px; }
-   { width: 88px; height: 88px; }
-   { font-size: 28px; line-height: 32px; }
-   { margin-top: 4px; font-size: 16px; line-height: 24px; }
-   { margin-top: 6px; font-size: 13px; line-height: 18px; }
-   { margin-top: 12px; gap: 6px; }
-   { padding: 6px; }
-   { font-size: 11px; line-height: 16px; }
-   { font-size: 12px; line-height: 16px; }
-   { margin-top: 12px; gap: 8px; }
-   { padding: 8px 12px; font-size: 12px; line-height: 18px; }
-   { margin-top: 16px; }
-   { font-size: 20px; line-height: 24px; margin-bottom: 6px; }
 }
 @media (max-height: 559px), (min-width: 568px) and (max-height: 600px) {
-   { padding: 64px 0 52px; }
-   { flex-direction: row; gap: 16px; }
-   { width: 80px; height: 80px; }
-   { font-size: 26px; line-height: 30px; }
-   { margin-top: 2px; font-size: 14px; line-height: 20px; }
-   { margin-top: 4px; font-size: 12px; line-height: 16px; }
-   { margin: 8px 0 0; gap: 8px; }
-   { padding: 6px; }
-   { font-size: 12px; line-height: 16px; }
-   { margin-top: 8px; gap: 8px; }
-   { padding: 6px 12px; font-size: 12px; line-height: 18px; }
-   { margin-top: 10px; }
-   { font-size: 18px; line-height: 22px; margin-bottom: 4px; }
-   { font-size: 12px; line-height: 16px; }
-   { bottom: 10px; }
-   { height: 24px; }
-   { font-size: 10px; margin-top: 2px; }
-  #experience { padding: 64px 16px 12px; }
-  #experience .education-heading { font-size: 24px; line-height: 28px; margin-bottom: 10px; }
-  #experience .education-card { padding: 8px 12px; }
-  #experience .education-card h3 { font-size: 14px; line-height: 18px; margin-bottom: 2px; }
-  #experience .education-card p { font-size: 12px; line-height: 16px; margin-bottom: 2px; }
-  #experience .education-card p:last-child { font-size: 12px; line-height: 16px; }
-  #experience .education-dot { top: 16px; }
+  #experience {
+    padding: 64px 16px 12px;
+  }
+  #experience .education-heading {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+  #experience .education-card {
+    padding: 10px 14px;
+  }
+  #experience .education-card h3 {
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 2px;
+  }
+  #experience .education-card p {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 2px;
+  }
+  #experience .education-card p:last-child {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  #experience .education-dot {
+    top: 16px;
+  }
 }
 
 /* Reserve room for all three cards on the shortest landscape viewports. */
 @media (max-height: 359px) {
-  #experience { padding-bottom: 8px; }
-  #experience .education-heading { font-size: 22px; line-height: 26px; margin-bottom: 6px; }
-  #experience .education-card { padding: 4px 12px; }
-  #experience .education-dot { top: 12px; }
+  #experience {
+    padding-bottom: 8px;
+  }
+  #experience .education-heading {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 6px;
+  }
+  #experience .education-card {
+    padding: 6px 12px;
+  }
+  #experience .education-dot {
+    top: 12px;
+  }
 }
 
 /* Keep the original About sizing; reserve space for its animated scroll cue. */
 @media (max-width: 767px) {
-  #about { padding-bottom: 112px; }
+  #about {
+    padding-bottom: 112px;
+  }
 }
 @media (min-width: 768px) and (max-height: 740px) {
-  #about { height: auto; min-height: 100vh; padding: 80px 0 112px; }
+  #about {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0 112px;
+  }
 }

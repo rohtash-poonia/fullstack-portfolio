@@ -256,7 +256,7 @@ export default function TestimonialsPage() {
             type="button"
             aria-label="Previous testimonial"
             onClick={prevSlide}
-            className="group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white hover:bg-sky-500/20 transition-all duration-300 backdrop-blur-md"
+            className="group flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white hover:bg-sky-500/20 transition-all duration-300 backdrop-blur-md cursor-pointer"
           >
             <span className="group-hover:-translate-x-1 transition-transform">
               ←
@@ -266,7 +266,7 @@ export default function TestimonialsPage() {
             type="button"
             aria-label="Next testimonial"
             onClick={nextSlide}
-            className="group flex items-center justify-center w-12 h-12 rounded-full bg-sky-500/80 text-black font-bold hover:bg-white transition-all duration-300 shadow-lg shadow-sky-500/20"
+            className="group flex items-center justify-center w-12 h-12 rounded-full bg-sky-500/80 text-black font-bold hover:bg-sky-500/20 hover:text-white transition-all duration-300 shadow-lg shadow-sky-500/20 cursor-pointer"
           >
             <span className="group-hover:translate-x-1 transition-transform">
               →
