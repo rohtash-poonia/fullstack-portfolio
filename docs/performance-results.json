@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-22",
+  "method": "Unthrottled local Chromium against production Vite preview; no baseline LCP/CLS or field INP available. Cross-origin transfer sizes may be redacted.",
+  "results": [
+    {
+      "name": "desktop-reduced-motion",
+      "lcp": 436,
+      "cls": 0.03402759864085005,
+      "longTasks": 123,
+      "domContentLoaded": 184.89999999850988,
+      "resourceTransferBytes": 334631,
+      "resourceRequests": 13,
+      "heavyRequests": []
+    },
+    {
+      "name": "mobile",
+      "lcp": 348,
+      "cls": 0,
+      "longTasks": 103,
+      "domContentLoaded": 171,
+      "resourceTransferBytes": 211961,
+      "resourceRequests": 11,
+      "heavyRequests": []
+    }
+  ],
+  "mainBundle": {
+    "file": "index-v5x50GWD.js",
+    "bytes": 420101,
+    "gzipBytes": 138596
+  },
+  "links": [
+    {
+      "url": "https://github.com/rohtash-poonia/My_Portfolio",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/rohtash-poonia/Task-Master",
+      "status": 200
+    },
+    {
+      "url": "https://task-master-one-delta.vercel.app/",
+      "status": 200
+    },
+    {
+      "url": "https://portfolio-omega-seven-l7y6bvxpew.vercel.app/",
+      "status": 200
+    }
+  ],
+  "status": "Historical measurements of the superseded redesign; not valid for the restored portfolio."
+}

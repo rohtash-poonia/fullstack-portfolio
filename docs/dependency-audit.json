@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-22",
+  "command": "npm audit --omit=dev --json",
+  "counts": {
+    "info": 0,
+    "low": 1,
+    "moderate": 1,
+    "high": 8,
+    "critical": 0,
+    "total": 10
+  },
+  "note": "Package-level advisory matches are not a determination of exploitability in this static browser application. Existing installed package versions were preserved.",
+  "packages": [
+    {
+      "name": "esbuild",
+      "severity": "low",
+      "direct": false,
+      "range": "0.27.3 - 0.28.0",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "esbuild allows arbitrary file read when running the development server on Windows",
+          "url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr"
+        }
+      ]
+    },
+    {
+      "name": "fflate",
+      "severity": "moderate",
+      "direct": false,
+      "range": "0.6.0 - 0.6.10 || 0.8.0 - 0.8.2",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+          "url": "https://github.com/advisories/GHSA-px8p-9vwx-vf98"
+        },
+        {
+          "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+          "url": "https://github.com/advisories/GHSA-px8p-9vwx-vf98"
+        }
+      ]
+    },
+    {
+      "name": "immutable",
+      "severity": "high",
+      "direct": false,
+      "range": "5.0.0-beta.1 - 5.1.7",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "Immutable: Hash-collision algorithmic complexity denial of service in Immutable.Map/Set",
+          "url": "https://github.com/advisories/GHSA-xvcm-6775-5m9r"
+        },
+        {
+          "title": "Immutable.js `List` 32-bit trie overflow → unrecoverable DoS",
+          "url": "https://github.com/advisories/GHSA-v56q-mh7h-f735"
+        }
+      ]
+    },
+    {
+      "name": "nanoid",
+      "severity": "high",
+      "direct": false,
+      "range": "<=3.3.17",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "nanoid: non-secure generators can loop indefinitely with negative size",
+          "url": "https://github.com/advisories/GHSA-28wg-ghj8-5hjv"
+        },
+        {
+          "title": "nanoid: custom generators can loop indefinitely when size is zero",
+          "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8"
+        },
+        {
+          "title": "nanoid: Integer Overflow or Wraparound",
+          "url": "https://github.com/advisories/GHSA-xwg4-73v4-xw9w"
+        }
+      ]
+    },
+    {
+      "name": "picomatch",
+      "severity": "high",
+      "direct": false,
+      "range": "4.0.0 - 4.0.3",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+          "url": "https://github.com/advisories/GHSA-3v7f-55p6-f55p"
+        },
+        {
+          "title": "Picomatch has a ReDoS vulnerability via extglob quantifiers",
+          "url": "https://github.com/advisories/GHSA-c2c7-rcm5-vvqj"
+        }
+      ]
+    },
+    {
+      "name": "postcss",
+      "severity": "high",
+      "direct": false,
+      "range": "<=8.5.22",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "PostCSS has XSS via Unescaped </style> in its CSS Stringify Output",
+          "url": "https://github.com/advisories/GHSA-qx2v-qp2m-jg93"
+        },
+        {
+          "title": "PostCSS: Arbitrary file read and information disclosure via attacker-controlled sourceMappingURL in CSS comments",
+          "url": "https://github.com/advisories/GHSA-6g55-p6wh-862q"
+        },
+        {
+          "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+          "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp"
+        },
+        {
+          "title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+          "url": "https://github.com/advisories/GHSA-r28c-9q8g-f849"
+        }
+      ]
+    },
+    {
+      "name": "react-router",
+      "severity": "high",
+      "direct": false,
+      "range": "6.0.0 - 7.18.1",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "React Router's vendored turbo-stream v2 allows arbitrary constructor invocation via TYPE_ERROR deserialization leading to Unauth RCE",
+          "url": "https://github.com/advisories/GHSA-49rj-9fvp-4h2h"
+        },
+        {
+          "title": "React Router vulnerable to XSS in unstable RSC redirect handling via javascript: redirect targets",
+          "url": "https://github.com/advisories/GHSA-8646-j5j9-6r62"
+        },
+        {
+          "title": "React Router vulnerable to DoS via unbounded path expansion in __manifest endpoint",
+          "url": "https://github.com/advisories/GHSA-8x6r-g9mw-2r78"
+        },
+        {
+          "title": "React Router vulnerable to Denial of Service via reflected user input in single-fetch",
+          "url": "https://github.com/advisories/GHSA-rxv8-25v2-qmq8"
+        },
+        {
+          "title": "React Router: Potential CSRF via PUT/PATCH/DELETE document requests",
+          "url": "https://github.com/advisories/GHSA-84g9-w2xq-vcv6"
+        },
+        {
+          "title": "React Router: Open redirect via backslash in <Link> and useNavigate (CVE-2025-68470 bypass)",
+          "url": "https://github.com/advisories/GHSA-wrjc-x8rr-h8h6"
+        },
+        {
+          "title": "React Router: RSCErrorHandler Missing Protocol Validation (XSS)",
+          "url": "https://github.com/advisories/GHSA-h8fp-f39c-q6mh"
+        },
+        {
+          "title": "React Router: Arbitrary Constructor Injection via deserializeErrors() in React Router SSR Hydration",
+          "url": "https://github.com/advisories/GHSA-337j-9hxr-rhxg"
+        },
+        {
+          "title": "React Router: Unauthenticated Denial of Service via Inefficient Route Matching",
+          "url": "https://github.com/advisories/GHSA-chx6-hx7r-mcp5"
+        },
+        {
+          "title": "React Router's same-origin redirect with path starting // causes open redirect via protocol-relative URL reinterpretation",
+          "url": "https://github.com/advisories/GHSA-2j2x-hqr9-3h42"
+        },
+        {
+          "title": "React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response",
+          "url": "https://github.com/advisories/GHSA-qwww-vcr4-c8h2"
+        },
+        {
+          "title": "React Router has stored XSS via unescaped Location header in prerendered redirect HTML",
+          "url": "https://github.com/advisories/GHSA-f22v-gfqf-p8f3"
+        }
+      ]
+    },
+    {
+      "name": "react-router-dom",
+      "severity": "high",
+      "direct": true,
+      "range": "7.0.0-pre.0 - 7.14.1",
+      "fixAvailable": true,
+      "advisories": [
+        "react-router"
+      ]
+    },
+    {
+      "name": "source-map-js",
+      "severity": "high",
+      "direct": false,
+      "range": "1.0.0 - 1.2.1",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+          "url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q"
+        }
+      ]
+    },
+    {
+      "name": "vite",
+      "severity": "high",
+      "direct": true,
+      "range": "7.0.0 - 7.3.6",
+      "fixAvailable": true,
+      "advisories": [
+        {
+          "title": "Vite Vulnerable to Path Traversal in Optimized Deps `.map` Handling",
+          "url": "https://github.com/advisories/GHSA-4w7w-66w2-5vf9"
+        },
+        {
+          "title": "Vite: `server.fs.deny` bypassed with queries",
+          "url": "https://github.com/advisories/GHSA-v2wj-q39q-566r"
+        },
+        {
+          "title": "Vite Vulnerable to Arbitrary File Read via Vite Dev Server WebSocket",
+          "url": "https://github.com/advisories/GHSA-p9ff-h696-f583"
+        },
+        {
+          "title": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+          "url": "https://github.com/advisories/GHSA-v6wh-96g9-6wx3"
+        },
+        {
+          "title": "vite: `server.fs.deny` bypass on Windows alternate paths",
+          "url": "https://github.com/advisories/GHSA-fx2h-pf6j-xcff"
+        },
+        {
+          "title": "launch-editor: escapeCmdArgs() omits % escaping on Windows",
+          "url": "https://github.com/advisories/GHSA-698v-4r3x-3vcv"
+        },
+        {
+          "title": "launch-editor: Editor CLI flag misinterpretation causing arbitrary command execution for some editors",
+          "url": "https://github.com/advisories/GHSA-r825-w8mm-5pxw"
+        },
+        {
+          "title": "launch-editor: `fs.existsSync()` existence check can be bypassed on Windows",
+          "url": "https://github.com/advisories/GHSA-587h-7wmj-h5pm"
+        },
+        {
+          "title": "Vite: Cross origin script execution through Vite custom middleware",
+          "url": "https://github.com/advisories/GHSA-9jrq-w75r-8gcw"
+        },
+        {
+          "title": "Vite: Files outside `server.fs.allow` could be served when project paths match system paths on non-Windows machine",
+          "url": "https://github.com/advisories/GHSA-rq7h-c2jc-7f22"
+        }
+      ]
+    }
+  ]
+}

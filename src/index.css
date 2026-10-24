@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* ---------------- Fonts ---------------- */
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1, h2 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ---------------- Gradient Background Utility ---------------- */
+@layer utilities {
+    .gradient {
+        background: linear-gradient(135deg, #112573 10%, #822727 100%);
+    }
+
+    .animate-gradientMove {
+        animation: gradientMove 8s ease infinite; /* smooth easing */
+        background-size: 200% 200%;
+    }
+}
+
+/* ---------------- Gradient Text ---------------- */
+.animated-gradient-text {
+    background: linear-gradient(
+        90deg,
+        #ec4899,
+        #d946ef,
+        #8b5cf6,
+        #ec4899
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s ease infinite; /* slower & smooth */
+}
+
+/* ---------------- Keyframes ---------------- */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* GPU acceleration for animations */
+/* Improve animation smoothness */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shift */
+body {
+  overflow-x: hidden;
+}
+
+/* GPU acceleration for animations */
+.motion-smooth {
+  will-change: transform;
+  transform: translateZ(0);
+}
+/* Full-page panels retain the original composition and scroll only when content needs it. */
+.section-viewport { scrollbar-width: thin; }
+
+:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+@media (max-width: 767px), (max-height: 720px) {
+  .contact-wrapper .main-content { padding-top: 80px; }
+}
+@media (max-width: 480px) {
+  .contact-wrapper .main-content { padding-left: 20px; padding-right: 20px; }
+}
+
+/* The longer hero title remains on a single desktop line. */
+@media (min-width: 1024px) {
+  .hero-copy { container-type: inline-size; }
+  .hero-role-combined { white-space: nowrap; font-size: min(2.25rem, 4.8cqi); line-height: 1.2; }
+}
+
+/* Restore the saved Astra layout; use fit adjustments only on limited screens. */
+#experience { height: 100vh; min-height: 0; box-sizing: border-box; }
+ { padding: 0; }
+ { padding-top: 48px; padding-bottom: 0; }
+ { padding-top: 0; gap: 40px; }
+ { flex-shrink: 0; }
+ { margin: 24px 0 32px; gap: 16px; }
+ { margin-top: 32px; gap: 16px; }
+ { margin-top: 48px; }
+
+#experience { padding: 80px 24px 32px; justify-content: center; }
+#experience .education-heading { font-size: 36px; line-height: 40px; margin: 0 0 32px; flex-shrink: 0; }
+#experience .education-timeline { max-width: 1024px; max-height: 640px; min-height: 0; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+#experience .education-item { margin-bottom: 0; flex-shrink: 0; }
+#experience .education-card { padding: 24px; border-radius: 16px; }
+#experience .education-card h3 { font-size: 20px; line-height: 28px; }
+#experience .education-card p { font-size: 16px; line-height: 24px; }
+#experience .education-card p:last-child { font-size: 14px; line-height: 20px; }
+#experience .education-dot { width: 16px; height: 16px; top: 24px; }
+
+/* Original testimonial proportions; leave clearance below the fixed navbar. */
+#testimonials { padding-top: 80px; }
+#testimonials .testimonial-heading, #testimonials .testimonial-controls { flex-shrink: 0; }
+#testimonials .testimonial-card { cursor: grab; }
+#testimonials .testimonial-card:active { cursor: grabbing; }
+#testimonials .testimonial-card p, #testimonials .testimonial-card h3 { cursor: text; }
+
+@media (min-width: 768px) and (max-height: 720px) {
+   { padding: 72px 0; }
+   { padding-top: 0; }
+   { margin-top: 28px; }
+   { margin: 20px 0; }
+   { margin-top: 20px; }
+}
+@media (max-width: 767px) {
+   { padding: 72px 0 64px; }
+   { padding-top: 0; }
+   { gap: 24px; }
+   { width: 140px; height: 140px; }
+   { font-size: 36px; line-height: 40px; }
+   { font-size: 18px; line-height: 26px; }
+   { font-size: 14px; line-height: 21px; }
+   { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 20px 0 0; gap: 10px; }
+   { padding: 10px 8px; }
+   { font-size: 12px; line-height: 18px; }
+   { font-size: 14px; line-height: 20px; }
+   { flex-direction: row; margin-top: 20px; gap: 12px; }
+   { padding: 12px 16px; font-size: 14px; line-height: 20px; }
+   { margin-top: 28px; }
+   { font-size: 24px; line-height: 30px; margin-bottom: 12px; }
+   { font-size: 14px; line-height: 21px; }
+   { bottom: 14px; }
+   { height: 28px; }
+   { margin-top: 4px; font-size: 10px; }
+  #experience { padding: 72px 16px 24px; }
+  #experience .education-heading { font-size: 32px; line-height: 38px; margin-bottom: 24px; }
+  #experience .education-card { padding: 20px; }
+  #experience .education-card h3 { font-size: 18px; line-height: 26px; }
+  #experience .education-card p { font-size: 14px; line-height: 20px; }
+  #experience .education-card p:last-child { font-size: 12px; line-height: 18px; }
+  #experience .education-dot { top: 20px; width: 12px; height: 12px; }
+}
+@media (max-width: 767px) and (max-height: 739px) {
+   { padding-top: 64px; }
+   { gap: 16px; }
+   { width: 104px; height: 104px; }
+   { font-size: 32px; line-height: 36px; }
+   { margin-top: 14px; gap: 8px; }
+   { margin-top: 14px; }
+   { margin-top: 20px; }
+   { font-size: 22px; line-height: 28px; margin-bottom: 8px; }
+   { font-size: 13px; line-height: 18px; }
+  #experience .education-heading { font-size: 28px; line-height: 34px; margin-bottom: 16px; }
+  #experience .education-card { padding: 12px; }
+  #experience .education-card h3 { font-size: 16px; line-height: 22px; }
+  #experience .education-card p { font-size: 13px; line-height: 18px; }
+}
+@media (max-width: 767px) and (max-height: 639px) {
+   { gap: 14px; }
+   { width: 88px; height: 88px; }
+   { font-size: 28px; line-height: 32px; }
+   { margin-top: 4px; font-size: 16px; line-height: 24px; }
+   { margin-top: 6px; font-size: 13px; line-height: 18px; }
+   { margin-top: 12px; gap: 6px; }
+   { padding: 6px; }
+   { font-size: 11px; line-height: 16px; }
+   { font-size: 12px; line-height: 16px; }
+   { margin-top: 12px; gap: 8px; }
+   { padding: 8px 12px; font-size: 12px; line-height: 18px; }
+   { margin-top: 16px; }
+   { font-size: 20px; line-height: 24px; margin-bottom: 6px; }
+}
+@media (min-width: 568px) and (max-height: 600px) {
+   { padding: 64px 0 52px; }
+   { flex-direction: row; gap: 16px; }
+   { width: 80px; height: 80px; }
+   { font-size: 26px; line-height: 30px; }
+   { margin-top: 2px; font-size: 14px; line-height: 20px; }
+   { margin-top: 4px; font-size: 12px; line-height: 16px; }
+   { margin: 8px 0 0; gap: 8px; }
+   { padding: 6px; }
+   { font-size: 12px; line-height: 16px; }
+   { margin-top: 8px; gap: 8px; }
+   { padding: 6px 12px; font-size: 12px; line-height: 18px; }
+   { margin-top: 10px; }
+   { font-size: 18px; line-height: 22px; margin-bottom: 4px; }
+   { font-size: 12px; line-height: 16px; }
+   { bottom: 10px; }
+   { height: 24px; }
+   { font-size: 10px; margin-top: 2px; }
+  #experience { padding: 64px 16px 12px; }
+  #experience .education-heading { font-size: 24px; line-height: 28px; margin-bottom: 10px; }
+  #experience .education-card { padding: 8px 12px; }
+  #experience .education-card h3 { font-size: 14px; line-height: 18px; margin-bottom: 2px; }
+  #experience .education-card p { font-size: 12px; line-height: 16px; margin-bottom: 2px; }
+  #experience .education-card p:last-child { font-size: 12px; line-height: 16px; }
+  #experience .education-dot { top: 16px; }
+}
+
+/* Keep the original About sizing; reserve space for its animated scroll cue. */
+@media (max-width: 767px) {
+  #about { padding-bottom: 112px; }
+}
+@media (min-width: 768px) and (max-height: 740px) {
+  #about { height: auto; min-height: 100vh; padding: 80px 0 112px; }
+}
