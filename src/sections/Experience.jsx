@@ -4,17 +4,18 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
+    id: 2,
+    role: "Full Stack Developer",
+    company: "OKK Code Pvt. Limited, Hisar",
+    period: "June 2025",
+  },
+  {
     id: 1,
     role: "B.Sc (Bachelor of Science)",
     company: "Chaudhary Devi Lal University, Sirsa",
     period: "June 2022 - April 2025",
   },
-  {
-    id: 2,
-   role: "Frontend Developer",
-  company: "OKK Code Pvt. Limited, Hisar",
-  period: "June 2025"
-  },
+
   {
     id: 3,
     role: "Higher Secondary Education",
@@ -45,8 +46,10 @@ export default function Experience() {
           const isLeft = idx % 2 !== 0;
 
           return (
-            <div key={exp.id} className="education-item relative w-full mb-16 sm:mb-24">
-              
+            <div
+              key={exp.id}
+              className="education-item relative w-full mb-16 sm:mb-24"
+            >
               {/* Card */}
               <motion.div
                 className={`
@@ -74,9 +77,7 @@ export default function Experience() {
                 <p className="text-blue-300 mb-1 text-sm sm:text-base">
                   {exp.company}
                 </p>
-                <p className="text-blue-400 text-xs sm:text-sm">
-                  {exp.period}
-                </p>
+                <p className="text-blue-400 text-xs sm:text-sm">{exp.period}</p>
               </motion.div>
 
               {/* Timeline Dot */}
