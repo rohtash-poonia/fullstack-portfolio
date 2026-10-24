@@ -72,7 +72,7 @@ body {
 }
 @media (max-width: 767px), (max-height: 720px) {
   .contact-wrapper .main-content {
-    padding-top: 80px;
+    padding-top: 56px;
   }
 }
 @media (max-width: 480px) {

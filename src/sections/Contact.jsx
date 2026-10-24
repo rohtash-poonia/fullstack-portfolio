@@ -16,16 +16,19 @@ export default function Contact() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     try {
       if (!sound.current) {
-        const { default: source } = await import("../assets/audio/charge-up.wav");
+        const { default: source } =
+          await import("../assets/audio/charge-up.wav");
         sound.current = new Audio(source);
         sound.current.volume = 0.3;
       }
       sound.current.currentTime = 0;
       await sound.current.play();
-    } catch { /* Optional sound never affects delivery. */ }
+    } catch {
+      /* Optional sound never affects delivery. */
+    }
   };
 
-  const sendEmail = async event => {
+  const sendEmail = async (event) => {
     event.preventDefault();
     if (inFlight.current) return;
     inFlight.current = true;
@@ -37,7 +40,11 @@ export default function Contact() {
       form.current.reset();
       void playSound();
     } catch (error) {
-      setStatus(error.message?.includes("not configured") ? error.message : "Your message could not be sent. Please try again.");
+      setStatus(
+        error.message?.includes("not configured")
+          ? error.message
+          : "Your message could not be sent. Please try again.",
+      );
     } finally {
       inFlight.current = false;
       setSending(false);
@@ -90,7 +97,7 @@ export default function Contact() {
             width: 100%;
             z-index: 10;
             padding: 20px 80px; /* Side paddings for safe distance */
-            margin-top: 20px;
+            margin-top: 0;
           }
 
           .astra-image {
@@ -185,32 +192,107 @@ export default function Contact() {
             .astra-image { display: none; }
             .contact-card { margin-right: 0; }
           }
+
+          @media (max-height: 720px) {
+            .contact-card { padding: 22px; }
+            .contact-card h2 { font-size: 2rem; margin-bottom: 8px; }
+            .input-style { padding: 10px; margin: 6px 0; }
+            .btn-send { padding: 12px; margin-top: 10px; }
+          }
         `}
       </style>
-      <section id="contact" tabIndex={-1} aria-labelledby="contact-title" className="contact-wrapper">
+      <section
+        id="contact"
+        tabIndex={-1}
+        aria-labelledby="contact-title"
+        className="contact-wrapper"
+      >
         <Stars />
         <div className="main-content">
-          <img src={AstraImg} srcSet={AstraImg + " 450w, " + AstraLarge + " 900w"} sizes="(min-width: 1100px) 450px, 350px" width="450" height="450" loading="lazy" decoding="async" alt="Floating astronaut" className="astra-image" />
+          <img
+            src={AstraImg}
+            srcSet={AstraImg + " 450w, " + AstraLarge + " 900w"}
+            sizes="(min-width: 1100px) 450px, 350px"
+            width="450"
+            height="450"
+            loading="lazy"
+            decoding="async"
+            alt="Floating astronaut"
+            className="astra-image"
+          />
           <div className="contact-card">
             <h2 id="contact-title">Let's Connect</h2>
             <form ref={form} onSubmit={sendEmail} aria-busy={sending}>
-              <label className="sr-only" htmlFor="contact-name">Full Name</label>
-              <input id="contact-name" type="text" name="from_name" autoComplete="name" placeholder="Full Name" className="input-style" maxLength={120} required />
-              <label className="sr-only" htmlFor="contact-email">Email Address</label>
-              <input id="contact-email" type="email" name="from_email" autoComplete="email" placeholder="Email Address" className="input-style" maxLength={254} required />
-              <label className="sr-only" htmlFor="contact-service">Service</label>
-              <select id="contact-service" name="service" className="input-style" defaultValue="" required>
-                <option value="" disabled>Select Service</option>
-                <option value="Full Stack Development">Full Stack Development</option>
+              <label className="sr-only" htmlFor="contact-name">
+                Full Name
+              </label>
+              <input
+                id="contact-name"
+                type="text"
+                name="from_name"
+                autoComplete="name"
+                placeholder="Full Name"
+                className="input-style"
+                maxLength={120}
+                required
+              />
+              <label className="sr-only" htmlFor="contact-email">
+                Email Address
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                name="from_email"
+                autoComplete="email"
+                placeholder="Email Address"
+                className="input-style"
+                maxLength={254}
+                required
+              />
+              <label className="sr-only" htmlFor="contact-service">
+                Service
+              </label>
+              <select
+                id="contact-service"
+                name="service"
+                className="input-style"
+                defaultValue=""
+                required
+              >
+                <option value="" disabled>
+                  Select Service
+                </option>
+                <option value="Full Stack Development">
+                  Full Stack Development
+                </option>
                 <option value="Web Development">Web Development</option>
                 <option value="Backend & REST APIs">Backend & REST APIs</option>
                 <option value="API Integration">API Integration</option>
                 <option value="Other">Other</option>
               </select>
-              <label className="sr-only" htmlFor="contact-message">Message</label>
-              <textarea id="contact-message" name="message" placeholder="Message..." rows={4} className="input-style" style={{ resize: "vertical" }} maxLength={5000} required />
-              <button type="submit" className="btn-send" disabled={sending}>{sending ? "Sending..." : "Send Message"}</button>
-              <p role="status" aria-live="polite" className={status ? "mt-3 text-sm text-sky-100" : "sr-only"}>{status}</p>
+              <label className="sr-only" htmlFor="contact-message">
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                placeholder="Message..."
+                rows={4}
+                className="input-style"
+                style={{ resize: "vertical" }}
+                maxLength={5000}
+                required
+              />
+              <button type="submit" className="btn-send" disabled={sending}>
+                {sending ? "Sending..." : "Send Message"}
+              </button>
+              <p
+                role="status"
+                aria-live="polite"
+                className={status ? "mt-3 text-sm text-sky-100" : "sr-only"}
+              >
+                {status}
+              </p>
             </form>
           </div>
         </div>
