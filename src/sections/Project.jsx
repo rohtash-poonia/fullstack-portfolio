@@ -13,7 +13,7 @@ const projectsData = [
     title: "IcyTales",
     description: "A modern ice cream eCommerce website to explore flavors, browse products, and enjoy a smooth, visually engaging shopping experience.",
     image: icyImage,
-    tags: ["React", "Next.js", "Tailwind CSS", "JavaScript", "UI/UX", "Responsive Design"],
+    tags: ["Node.js", "Next.js", "Tailwind CSS", "JavaScript", "MongoDB", "UI/UX", "Responsive Design"],
     liveLink: "https://personal-icytales.vercel.app/",
     githubLink: "https://github.com/rohtash-poonia/personal-Icytales.git",
     accentColor: "236, 72, 153",
