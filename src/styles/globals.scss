@@ -117,7 +117,7 @@ body {
 
 a,
 input[type="checkbox"] {
-  cursor: none !important;
+  cursor: pointer !important;
 }
 
 .outer-menu {
@@ -414,7 +414,9 @@ $bg: #f4faff;
               border-radius: 50%;
               left: 0;
               top: 20%;
-              transition: border 0.1s ease-in-out 1.6s, box-shadow 0.2s ease;
+              transition:
+                border 0.1s ease-in-out 1.6s,
+                box-shadow 0.2s ease;
             }
           }
           &:checked {
@@ -481,7 +483,9 @@ $bg: #f4faff;
         bottom: 10px;
         left: 18px;
         border-radius: 20px;
-        box-shadow: 0 -18px 0 0px #ffdeaa, 0px -36px 0 0px #ffdeaa;
+        box-shadow:
+          0 -18px 0 0px #ffdeaa,
+          0px -36px 0 0px #ffdeaa;
       }
     }
     &__accent-1 {

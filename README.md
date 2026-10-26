@@ -17,7 +17,7 @@ The portfolio is a client-rendered frontend. There is no active backend, authent
 
 ## Contact form
 
-Copy `.env.example` to `.env` and supply your EmailJS service ID, template ID, and public key. Existing environment settings are preserved. The template receives `from_name`, `from_email`, `service`, and `message`.
+Copy `.env.example` to `.env` and supply your EmailJS service ID, template ID, and public key. Existing environment settings are preserved. The template receives `from_name`, `from_email`, `reply_to`, `service`, and `message`.
 
 Only EmailJS public configuration belongs in these `VITE_` variables. Private keys and server credentials must never be added to client-side environment variables.
 
