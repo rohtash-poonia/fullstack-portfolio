@@ -2,9 +2,16 @@ const getConfiguration = () => {
   const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-  if (!serviceID || !templateID || !publicKey) {
+  const missing = [
+    ["VITE_EMAILJS_SERVICE_ID", serviceID],
+    ["VITE_EMAILJS_TEMPLATE_ID", templateID],
+    ["VITE_EMAILJS_PUBLIC_KEY", publicKey],
+  ]
+    .filter(([, value]) => !value)
+    .map(([name]) => name);
+  if (missing.length) {
     throw new Error(
-      "Contact delivery is not configured yet. Please connect through the social links below.",
+      `Contact delivery is not configured. Missing: ${missing.join(", ")}`,
     );
   }
   return { serviceID, templateID, publicKey };

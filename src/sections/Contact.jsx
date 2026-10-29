@@ -49,6 +49,11 @@ export default function Contact() {
       form.current.reset();
       void playSound();
     } catch (error) {
+      console.error("Contact delivery failed", {
+        status: error?.status,
+        text: error?.text,
+        message: error?.message,
+      });
       const errorDetail =
         typeof error?.text === "string"
           ? error.text
