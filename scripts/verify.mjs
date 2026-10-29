@@ -488,10 +488,10 @@ try {
         .getByRole("status")
         .filter({ hasText: "could not be sent" })
         .waitFor();
-      await page
-        .getByRole("status")
-        .filter({ hasText: "Test failure" })
-        .waitFor();
+      assert.equal(
+        await page.getByRole("status").innerText(),
+        "Your message could not be sent. Please try again.",
+      );
       await page.screenshot({
         path: path.join(artifacts, "desktop-contact.png"),
       });

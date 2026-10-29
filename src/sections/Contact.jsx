@@ -49,24 +49,14 @@ export default function Contact() {
       form.current.reset();
       void playSound();
     } catch (error) {
-      console.error("Contact delivery failed", {
-        status: error?.status,
-        text: error?.text,
-        message: error?.message,
-      });
-      const errorDetail =
-        typeof error?.text === "string"
-          ? error.text
-          : typeof error?.message === "string"
-            ? error.message
-            : "";
-      setStatus(
-        error.message?.includes("not configured")
-          ? error.message
-          : errorDetail
-            ? `Your message could not be sent: ${errorDetail.slice(0, 180)}`
-            : "Your message could not be sent. Please try again.",
-      );
+      if (import.meta.env.DEV) {
+        console.error("Contact delivery failed", {
+          status: error?.status,
+          text: error?.text,
+          message: error?.message,
+        });
+      }
+      setStatus("Your message could not be sent. Please try again.");
     } finally {
       inFlight.current = false;
       setSending(false);
