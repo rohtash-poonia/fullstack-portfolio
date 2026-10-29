@@ -35,8 +35,16 @@ export default function Contact() {
     setSending(true);
     setStatus("");
     try {
-      await sendContactForm(form.current);
-      setStatus("Message sent! Thanks for getting in touch.");
+      const { autoReplyConfigured, autoReplySent } = await sendContactForm(
+        form.current,
+      );
+      setStatus(
+        !autoReplyConfigured
+          ? "Message sent! Thanks for getting in touch."
+          : autoReplySent
+            ? "Message sent! A confirmation email is on its way."
+            : "Message sent, but we could not send a confirmation email.",
+      );
       form.current.reset();
       void playSound();
     } catch (error) {

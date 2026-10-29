@@ -26,6 +26,7 @@ const server = spawn(
       ...process.env,
       VITE_EMAILJS_SERVICE_ID: "service_portfolio_test",
       VITE_EMAILJS_TEMPLATE_ID: "template_portfolio_test",
+      VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID: "template_portfolio_autoreply_test",
       VITE_EMAILJS_PUBLIC_KEY: "portfolio_test_key",
     },
   },
@@ -431,11 +432,9 @@ try {
       await page
         .getByLabel("Message", { exact: true })
         .fill("Intercepted local test, never delivered.");
-      let sends = 0;
-      let sentPayload;
+      const sentPayloads = [];
       await page.route("https://api.emailjs.com/**", async (route) => {
-        sends++;
-        sentPayload = route.request().postDataJSON();
+        sentPayloads.push(route.request().postDataJSON());
         await new Promise((resolve) => setTimeout(resolve, 150));
         await route.fulfill({ status: 200, body: "OK" });
       });
@@ -445,10 +444,18 @@ try {
       });
       await page
         .getByRole("status")
-        .filter({ hasText: "Message sent!" })
+        .filter({ hasText: "A confirmation email is on its way" })
         .waitFor();
-      assert.equal(sends, 1);
-      assert.equal(sentPayload.template_params.reply_to, "test@example.com");
+      assert.equal(sentPayloads.length, 2);
+      assert.equal(sentPayloads[0].template_id, "template_portfolio_test");
+      assert.equal(
+        sentPayloads[1].template_id,
+        "template_portfolio_autoreply_test",
+      );
+      assert.equal(
+        sentPayloads[0].template_params.reply_to,
+        "test@example.com",
+      );
       await page.unroute("https://api.emailjs.com/**");
       await page.route("https://api.emailjs.com/**", (route) =>
         route.fulfill({ status: 500, body: "Test failure" }),

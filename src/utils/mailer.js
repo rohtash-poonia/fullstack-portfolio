@@ -12,13 +12,28 @@ const getConfiguration = () => {
 
 export const sendContactForm = async (form) => {
   const { serviceID, templateID, publicKey } = getConfiguration();
+  const autoReplyTemplateID = import.meta.env
+    .VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID;
   const { default: emailjs } = await import("@emailjs/browser");
   const templateParams = Object.fromEntries(new FormData(form));
   templateParams.from_name = templateParams.from_name.trim();
   templateParams.from_email = templateParams.from_email.trim();
   templateParams.reply_to = templateParams.from_email;
   templateParams.message = templateParams.message.trim();
-  return emailjs.send(serviceID, templateID, templateParams, { publicKey });
+  await emailjs.send(serviceID, templateID, templateParams, { publicKey });
+
+  if (!autoReplyTemplateID) {
+    return { autoReplyConfigured: false, autoReplySent: false };
+  }
+
+  try {
+    await emailjs.send(serviceID, autoReplyTemplateID, templateParams, {
+      publicKey,
+    });
+    return { autoReplyConfigured: true, autoReplySent: true };
+  } catch {
+    return { autoReplyConfigured: true, autoReplySent: false };
+  }
 };
 
 export default async function mail({ name, email, message }) {

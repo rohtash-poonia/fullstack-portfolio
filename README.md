@@ -17,7 +17,9 @@ The portfolio is a client-rendered frontend. There is no active backend, authent
 
 ## Contact form
 
-Copy `.env.example` to `.env` and supply your EmailJS service ID, template ID, and public key. Existing environment settings are preserved. The template receives `from_name`, `from_email`, `reply_to`, `service`, and `message`.
+Copy `.env.example` to `.env` and supply your EmailJS service ID, notification template ID, auto-reply template ID, and public key. The notification template receives `from_name`, `from_email`, `reply_to`, `service`, and `message`. Configure its **To Email** as `rohtashpoonia2274@gmail.com`. Configure the auto-reply template's **To Email** as `{{from_email}}`, so the response goes to the visitor.
+
+For the live Vercel site, add all four `VITE_EMAILJS_*` values under **Project Settings → Environment Variables** for the Production environment, then redeploy. Local `.env` values are not uploaded to Vercel. In the notification template, use `{{from_name}}`, `{{from_email}}`, `{{reply_to}}`, `{{service}}`, and `{{message}}`. In the auto-reply template, address the visitor using `{{from_email}}` and include a short confirmation. The form reports if the visitor confirmation could not be sent. Check the EmailJS dashboard's email history and spam folder if an accepted message does not arrive.
 
 Only EmailJS public configuration belongs in these `VITE_` variables. Private keys and server credentials must never be added to client-side environment variables.
 
