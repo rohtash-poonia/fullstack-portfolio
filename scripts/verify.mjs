@@ -433,6 +433,17 @@ try {
         .getByLabel("Message", { exact: true })
         .fill("Intercepted local test, never delivered.");
       const sentPayloads = [];
+      await page.evaluate(() => {
+        Object.defineProperty(window, "localStorage", {
+          configurable: true,
+          get() {
+            throw new DOMException(
+              "Storage access is blocked in this sandbox.",
+              "SecurityError",
+            );
+          },
+        });
+      });
       await page.route("https://api.emailjs.com/**", async (route) => {
         sentPayloads.push(route.request().postDataJSON());
         await new Promise((resolve) => setTimeout(resolve, 150));
