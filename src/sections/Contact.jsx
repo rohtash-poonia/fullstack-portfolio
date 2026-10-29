@@ -30,6 +30,7 @@ export default function Contact() {
 
   const sendEmail = async (event) => {
     event.preventDefault();
+    if (!form.current?.reportValidity()) return;
     if (inFlight.current) return;
     inFlight.current = true;
     setSending(true);
@@ -56,6 +57,13 @@ export default function Contact() {
     } finally {
       inFlight.current = false;
       setSending(false);
+    }
+  };
+
+  const submitOnEnter = (event) => {
+    if (event.key === "Enter" && event.target.tagName !== "TEXTAREA") {
+      event.preventDefault();
+      form.current?.requestSubmit();
     }
   };
 
@@ -230,7 +238,13 @@ export default function Contact() {
           />
           <div className="contact-card">
             <h2 id="contact-title">Let's Connect</h2>
-            <form ref={form} onSubmit={sendEmail} aria-busy={sending}>
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              onKeyDown={submitOnEnter}
+              noValidate
+              aria-busy={sending}
+            >
               <label className="sr-only" htmlFor="contact-name">
                 Full Name
               </label>
@@ -291,7 +305,12 @@ export default function Contact() {
                 maxLength={5000}
                 required
               />
-              <button type="submit" className="btn-send" disabled={sending}>
+              <button
+                type="button"
+                className="btn-send"
+                disabled={sending}
+                onClick={sendEmail}
+              >
                 {sending ? "Sending..." : "Send Message"}
               </button>
               <p

@@ -76,7 +76,7 @@ const panel = (page) =>
     `.section-viewport[data-section-index="${ids.indexOf(new URL(page.url()).pathname.slice(1) || "home")}"]`,
   );
 const visit = async (page, id) => {
-  await page.goto(url + routeFor(id));
+  await page.goto(url + routeFor(id), { waitUntil: "domcontentloaded" });
   await page.locator(`#${id}`).waitFor({ timeout: 30000 });
   await page.evaluate(() => document.fonts.ready);
   await settle(page);
