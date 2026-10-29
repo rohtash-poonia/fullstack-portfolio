@@ -49,10 +49,18 @@ export default function Contact() {
       form.current.reset();
       void playSound();
     } catch (error) {
+      const errorDetail =
+        typeof error?.text === "string"
+          ? error.text
+          : typeof error?.message === "string"
+            ? error.message
+            : "";
       setStatus(
         error.message?.includes("not configured")
           ? error.message
-          : "Your message could not be sent. Please try again.",
+          : errorDetail
+            ? `Your message could not be sent: ${errorDetail.slice(0, 180)}`
+            : "Your message could not be sent. Please try again.",
       );
     } finally {
       inFlight.current = false;

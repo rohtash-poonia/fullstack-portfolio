@@ -477,6 +477,10 @@ try {
         .getByRole("status")
         .filter({ hasText: "could not be sent" })
         .waitFor();
+      await page
+        .getByRole("status")
+        .filter({ hasText: "Test failure" })
+        .waitFor();
       await page.screenshot({
         path: path.join(artifacts, "desktop-contact.png"),
       });
