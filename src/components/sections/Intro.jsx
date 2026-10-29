@@ -17,27 +17,31 @@ export default function IntroScreen({ onFinish }) {
       "Hallo",
       "Salam",
     ],
-    []
+    [],
   );
 
   const [index, setIndex] = useState(0);
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (index < greetings.length - 1) {
-      const id = setInterval(() => {
-        setIndex((prev) => prev + 1);
-      }, 200);
+    const interval = setInterval(() => {
+      setIndex((current) => (current + 1) % greetings.length);
+    }, 200);
+    const hideTimeout = setTimeout(
+      () => setVisible(false),
+      greetings.length * 200 + 100,
+    );
 
-      return () => clearInterval(id);
-    } else {
-      const timeout = setTimeout(() => {
-        setVisible(false);
-      }, 200);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(hideTimeout);
+    };
+  }, [greetings.length]);
 
-      return () => clearTimeout(timeout);
-    }
-  }, [index, greetings.length]);
+  useEffect(() => {
+    const timeout = setTimeout(onFinish, 6000);
+    return () => clearTimeout(timeout);
+  }, [onFinish]);
 
   return (
     <AnimatePresence onExitComplete={onFinish}>
@@ -55,7 +59,7 @@ export default function IntroScreen({ onFinish }) {
             key={greetings[index]}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.16 }}
             className="text-4xl md:text-6xl font-bold"
           >
             {greetings[index]}
